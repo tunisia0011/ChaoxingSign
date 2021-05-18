@@ -156,6 +156,11 @@ foreach ($taskID as $k => $v) {
 
 //检查是否包含签到成功，如果包含签到成功 || 签到失败
 //则进行推送
+
+$url = "https://api.telegram.org/bot$TG_BOT_API/sendMessage?chat_id=$CHAT_ID&text=$msgTmp";
+echo send_get($url);
+
+/**
 if(strpos($msgTmp,'签到成功') !== false || strpos($msgTmp,'签到失败') !== false){
 
     //Server酱 微信推送
@@ -186,7 +191,7 @@ if(strpos($msgTmp,'签到成功') !== false || strpos($msgTmp,'签到失败') !=
     echo "没有待签到的任务".PHP_EOL;
 }
 die;
-
+**/
 
 //登陆账号
 takeLogin:
