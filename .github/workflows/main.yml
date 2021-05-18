@@ -14,19 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
-
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v2
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      run: |
+        apt update
+        apt install php-fpm php-mysql php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc php-zip php-opcache php-cli -y
+
     - name: Starting checkin
       run: php main.php -A ${{secrets.USERNAME}} -P ${{secrets.PASSWORD}}
