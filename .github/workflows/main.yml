@@ -2,13 +2,15 @@ name: chaoxingsign
 
 on:
   push:
+  schedule:
+    - cron: '*/5 7-18 * * *'
 
 env:
+    TZ: Asia/Shanghai
     USERNAME: ${{secrets.USERNAME}}
     PASSWORD: ${{secrets.PASSWORD}}
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
