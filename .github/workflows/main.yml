@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-    USERNAME: ${{secrets. USERNAME}}
+    USERNAME: ${{secrets.USERNAME}}
     PASSWORD: ${{secrets.PASSWORD}}
 jobs:
   build:
