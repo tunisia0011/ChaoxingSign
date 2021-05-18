@@ -1,14 +1,17 @@
-name: chaoxingsign
+name: ChaoxingSign
 
 on:
+  workflow_dispatch:
   push:
+    branches:
+      - master
   schedule:
     - cron: '*/5 7-18 * * *'
 
 env:
-    TZ: Asia/Shanghai
-    USERNAME: ${{secrets.USERNAME}}
-    PASSWORD: ${{secrets.PASSWORD}}
+  TZ: Asia/Shanghai
+  USERNAME: ${{secrets.USERNAME}}
+  PASSWORD: ${{secrets.PASSWORD}}
 jobs:
   build:
     runs-on: ubuntu-latest
