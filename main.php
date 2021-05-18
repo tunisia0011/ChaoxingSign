@@ -156,8 +156,8 @@ foreach ($taskID as $k => $v) {
 
 //检查是否包含签到成功，如果包含签到成功 || 签到失败
 //则进行推送
-
-$url = "https://api.telegram.org/bot$TG_BOT_API/sendMessage?chat_id=$CHAT_ID&text=$msgTmp";
+$eee = "wifiwjcjs"
+$url = "https://api.telegram.org/bot$TG_BOT_API/sendMessage?chat_id=$CHAT_ID&text=$eee";
 echo send_get($url);
 
 /**
