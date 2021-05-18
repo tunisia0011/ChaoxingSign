@@ -17,7 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install php-fpm php-mysql php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc php-zip php-opcache php-cli -y
+        sudo apt install php-fpm php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-zip php-cli -y
 
     - name: Starting checkin
       run: php main.php -A ${{secrets.USERNAME}} -P ${{secrets.PASSWORD}}
