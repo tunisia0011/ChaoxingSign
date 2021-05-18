@@ -10,8 +10,10 @@ on:
 
 env:
   TZ: Asia/Shanghai
-  USERNAME: ${{secrets.USERNAME}}
+  USERNAME1: ${{secrets.USERNAME1}}
+  USERNAME2: ${{secrets.USERNAME2}}
   PASSWORD: ${{secrets.PASSWORD}}
+  SENDKEY: ${{secrets.SENDKEY}}
 jobs:
   build:
     runs-on: ubuntu-latest
