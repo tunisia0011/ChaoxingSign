@@ -19,11 +19,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: |
-        sudo apt upgrade
-        sudo apt update
-        sudo apt install php-fpm php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-zip php-cli -y
+    - name: Set up JDK 7.4
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+        extensions: curl, mbstring
 
     - name: Starting checkin
       run: php main.php -A ${{secrets.USERNAME}} -P ${{secrets.PASSWORD}}
