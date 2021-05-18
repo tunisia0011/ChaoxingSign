@@ -30,6 +30,21 @@ function timeInterval(int $time, array $timeBetween)
 }
 
 /**
+ * Telegram 推送
+ */
+
+function send_get($urlstring)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $urlstring);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    $result = curl_exec($ch);
+    curl_close($ch); return $result;
+}
+
+/**
  * SERVER CHAN 微信推送
  * @param string $text 消息标题，最长为256，必填。
  * @param string $desp 消息内容，最长64Kb，可空，支持MarkDown。
