@@ -21,6 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        sudo apt upgrade
         sudo apt update
         sudo apt install php-fpm php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-zip php-cli -y
 
