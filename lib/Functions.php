@@ -33,15 +33,20 @@ function timeInterval(int $time, array $timeBetween)
  * Telegram 推送
  */
 
-function send_get($urlstring)
+function sendMessage($CHAT_ID, $eee, $TG_BOT_API)
 {
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $urlstring);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    $result = curl_exec($ch);
-    curl_close($ch); return $result;
+  echo "sending message to " . $CHAT_ID . "\n";
+  $url = "https://api.telegram.org/bot" . $TG_BOT_API . "/sendMessage?chat_id=" . $CHAT_ID;
+  $url = $url . "&text=" . urlencode($messaggio);
+  $ch = curl_init();
+  $optArray = array(
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true
+    );
+  curl_setopt_array($ch, $optArray);
+  $result = curl_exec($ch);
+  curl_close($ch);
+  return $result;
 }
 
 /**
